@@ -177,12 +177,12 @@ We can split a `Vec` into two separate `Vec`s using the `split_off` method. Howe
 
 > But as far as I know, there’s currently no way to tell the allocator “Hey I got this piece of memory from you, now please pretend you gave it to me as two separate, contiguous allocations”
 
-See also [Storing Lists of Values with Vectors](Storing Lists of Values with Vectors) from _The Rust Programming Language_.
+See also [Storing Lists of Values with Vectors](https://doc.rust-lang.org/book/ch08-01-vectors.html#storing-lists-of-values-with-vectors) from _The Rust Programming Language_.
 
 
 ## `smallvec`
 
-The [`smallvec`](https://github.com/servo/rust-smallvec) provides an interface that is very close to Vec, but it will store small numbers of items on the stack instead of allocating on the heap. This is good if you suspect your data structure will normally be quite small but it may need to grow occasionally.
+The [`smallvec`](https://github.com/servo/rust-smallvec) provides an interface that is very close to `Vec`, but it will store small numbers of items on the stack instead of allocating on the heap. This is good if you suspect your data structure will normally be quite small but it may need to grow occasionally.
 
 Whereas an array with type `[T; 4]` stores exactly 4 elements, a `SmallVec` of type `SmallVec[T; 4]` can store more than 4 elements. If it has 4 or fewer elements, it will be stored on the stack; otherwise, it will be stored on the heap.
 
@@ -208,7 +208,7 @@ See also [When is it “morally” correct to use smallvec?](https://users.rust-
 
 ## `arrayvec`
 
-This crate will let you store a Vec inside of an array, but it won't let you exceed the length of the underlying array. This means that the data can live in the data segment, on the stack, or on the heap.
+This crate will let you store a `Vec` inside of an array, but it won't let you exceed the length of the underlying array. This means that the data can live in the data segment, on the stack, or on the heap.
 
 [arrayvec](https://docs.rs/arrayvec)
 
@@ -313,4 +313,4 @@ These are a few techniques that are good to know about, but the use cases are pr
 
 ## Thanks
 
-Thanks to soruh_c10 on Twitch and s3bk and mejrs on users.rust-lang.org for suggestions and corrections!
+Thanks to [soruh_c10](https://www.twitch.tv/soruh_c10) on Twitch and [s3bk](https://users.rust-lang.org/u/s3bk) and [mejrs](https://users.rust-lang.org/u/mejrs) on users.rust-lang.org for suggestions and corrections!
